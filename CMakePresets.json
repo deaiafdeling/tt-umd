@@ -100,6 +100,15 @@
             }
         },
         {
+            "name": "with-examples",
+            "hidden": true,
+            "cacheVariables": {
+                "TT_UMD_BUILD_EXAMPLES": {
+                    "value": "ON"
+                }
+            }
+        },
+        {
             "name": "with-all",
             "hidden": true,
             "cacheVariables": {
@@ -107,6 +116,25 @@
                     "value": "ON"
                 }
             }
+        },
+        {
+            "name": "default",
+            "inherits": [
+                "with-tools",
+                "with-clang-tidy",
+                "base"
+            ],
+            "description": "Library and tools with the CMake option defaults"
+        },
+        {
+            "name": "examples",
+            "inherits": [
+                "with-examples",
+                "with-tools",
+                "with-clang-tidy",
+                "base"
+            ],
+            "description": "default with examples"
         },
         {
             "name": "tests",
@@ -201,6 +229,14 @@
         }
     ],
     "buildPresets": [
+        {
+            "name": "default",
+            "configurePreset": "default"
+        },
+        {
+            "name": "examples",
+            "configurePreset": "examples"
+        },
         {
             "name": "tests",
             "configurePreset": "tests"
