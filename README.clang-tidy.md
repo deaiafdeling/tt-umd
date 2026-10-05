@@ -45,7 +45,7 @@ Clang-tidy is enabled by default, to override the default behavior the CMake var
 To disable clang-tidy during the build process:
 
 ```bash
-cmake -B build -G Ninja -DTT_UMD_BUILD_TESTS=ON -DTT_UMD_ENABLE_CLANG_TIDY=OFF
+cmake --preset default -DTT_UMD_BUILD_TESTS=ON -DTT_UMD_ENABLE_CLANG_TIDY=OFF
 ```
 
 The `tests` CMake preset applies the same settings:

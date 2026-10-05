@@ -92,7 +92,7 @@
             }
         },
         {
-            "name": "all",
+            "name": "all-no-pip",
             "inherits": [
                 "default"
             ],
@@ -107,7 +107,7 @@
             }
         },
         {
-            "name": "all-pip-tracy",
+            "name": "all-tracy",
             "inherits": [
                 "default"
             ],
@@ -176,12 +176,12 @@
             "configurePreset": "release-no-clang-tidy"
         },
         {
-            "name": "all",
-            "configurePreset": "all"
+            "name": "all-no-pip",
+            "configurePreset": "all-no-pip"
         },
         {
-            "name": "all-pip-tracy",
-            "configurePreset": "all-pip-tracy"
+            "name": "all-tracy",
+            "configurePreset": "all-tracy"
         },
         {
             "name": "code-analysis",

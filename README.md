@@ -63,8 +63,8 @@ cmake --build --preset default
 
 To build all components (some are turned off by default, like tests), you can run these commands:
 ```
-cmake -B build -G Ninja -DTT_UMD_BUILD_ALL=ON
-cmake --build build
+cmake --preset default -DTT_UMD_BUILD_ALL=ON
+cmake --build --preset default
 ```
 
 #### CMake presets
@@ -80,8 +80,8 @@ cmake --build build
 | `simulation-tools-python` | `tests` with simulation support and Python bindings |
 | `release` | Library and Python bindings, as shipped in release packages |
 | `release-no-clang-tidy` | `release` without clang-tidy |
-| `all` | All components, without the pip package and Tracy |
-| `all-pip-tracy` | `all` with the pip package and Tracy |
+| `all-no-pip` | All components, without the pip package |
+| `all-tracy` | All components with the pip package and Tracy |
 | `code-analysis` | Debug `simulation` build with tools, clang-20 and clang-tidy, used by the code-analysis CI job |
 
 Each configure preset has a build preset of the same name:
