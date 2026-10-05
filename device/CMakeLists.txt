@@ -122,7 +122,6 @@ target_sources(
         arc/blackhole_arc_telemetry_reader.cpp
         arc/smbus_arc_telemetry_reader.cpp
         arc/blackhole_arc_message_queue.cpp
-        arc/spi_tt_device.cpp
         noc_access.cpp
         warm_reset.cpp
         warm_reset_with_recovery.cpp
@@ -134,12 +133,11 @@ target_sources(
         topology/topology_discovery_blackhole.cpp
         topology/topology_discovery_wormhole.cpp
         topology/topology_discovery_error.cpp
+        topology/ip_layout.cpp
         tt_device/remote_communication.cpp
         tt_device/remote_communication_legacy_firmware.cpp
         jtag/jtag_device.cpp
         jtag/jtag.cpp
-        arc/wormhole_spi_tt_device.cpp
-        arc/blackhole_spi_tt_device.cpp
         # UNIX domain socket (asio, already a core dependency) + filesystem; no simulation deps,
         # so always built. This lets its unit tests run in the no-card baremetal CI lane
         # (TT_UMD_BUILD_SIMULATION=OFF).
@@ -161,6 +159,9 @@ if(TT_UMD_BUILD_SIMULATION)
             simulation/simulation_host.cpp
             simulation/tt_sim_communicator.cpp
             simulation/rtl_sim_communicator.cpp
+            simulation/rtl_sim_session.cpp
+            simulation/rtl_sim_att_program.cpp
+            simulation/rtl_sim_ip_layout.cpp
             tt_device/simulation_tt_device.cpp
             tt_device/rtl_simulation_tt_device.cpp
             tt_device/tt_sim_tt_device.cpp
@@ -203,6 +204,7 @@ if(CMAKE_VERSION VERSION_GREATER_EQUAL 3.23)
                 api/umd/device/coordinates/att/att_window.hpp
                 api/umd/device/coordinates/att/att_resolver.hpp
                 api/umd/device/coordinates/att/configs/grendel_qsr1_att_map.hpp
+                api/umd/device/coordinates/att/configs/horizon_2x3_att_map.hpp
                 api/umd/device/arch/blackhole_implementation.hpp
                 api/umd/device/chip/chip.hpp
                 api/umd/device/chip/local_chip.hpp
@@ -245,6 +247,7 @@ if(CMAKE_VERSION VERSION_GREATER_EQUAL 3.23)
                 api/umd/device/tt_device/tt_sim_tt_device.hpp
                 api/umd/device/tt_device/simulation_tt_device.hpp
                 api/umd/device/simulation/rtl_sim_communicator.hpp
+                api/umd/device/simulation/rtl_sim_session.hpp
                 api/umd/device/simulation/simulation_host.hpp
                 api/umd/device/tt_device/simulation_device_factory.hpp
                 api/umd/device/tt_device/protocol/device_protocol.hpp
@@ -275,6 +278,7 @@ if(CMAKE_VERSION VERSION_GREATER_EQUAL 3.23)
                 api/umd/device/topology/topology_discovery.hpp
                 api/umd/device/topology/topology_discovery_options.hpp
                 api/umd/device/topology/topology_discovery_error.hpp
+                api/umd/device/topology/ip_layout.hpp
                 api/umd/device/utils/common.hpp
                 api/umd/device/utils/error.hpp
                 api/umd/device/utils/error_detail.hpp
@@ -302,7 +306,6 @@ if(CMAKE_VERSION VERSION_GREATER_EQUAL 3.23)
                 api/umd/device/jtag/jtag_device.hpp
                 api/umd/device/jtag/jtag.hpp
                 api/umd/device/arch/grendel_implementation.hpp
-                api/umd/device/arc/spi_tt_device.hpp
     )
 endif()
 
