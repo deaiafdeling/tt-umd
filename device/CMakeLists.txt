@@ -106,6 +106,7 @@ target_sources(
         tt_device/protocol/pcie_protocol.cpp
         tt_device/protocol/quasar_protocol.cpp
         tt_device/protocol/kmd_scalar_noc_access.cpp
+        io_window/kmd_noc_window.cpp
         tt_device/protocol/jtag_protocol.cpp
         tt_device/protocol/remote_protocol.cpp
         tt_device/protocol/pcie_dma/wormhole_dma_transfer.cpp
