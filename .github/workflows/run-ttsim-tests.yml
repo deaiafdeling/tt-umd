@@ -254,7 +254,8 @@ jobs:
           cmake --preset simulation-tools-python
           # sim_server is the simulation-gated tool; this is the only lane that builds it (build-tests
           # builds the tools with simulation OFF, which excludes it).
-          cmake --build --preset simulation-tools-python --target api_tests umd_microbenchmark sim_server nanobind_tt_umd
+          cmake --build --preset simulation-tools-python \
+            --target api_tests umd_microbenchmark sim_server nanobind_tt_umd
 
       # Exercises the tool, not just its build: a single-chip simulator ships no cluster_descriptor.yaml,
       # which is the case where a host with no chips would serve no sockets and still look like it started.
