@@ -76,8 +76,8 @@ cmake --build build
 | `default` | Library and tools with the CMake option defaults (clang-tidy enabled) |
 | `examples` | `default` with examples |
 | `tests` | Tests and tools, without simulation, Python or clang-tidy |
-| `simulation` | Tests with simulation support, without tools or Python bindings |
-| `simulation-tools-python` | `simulation` with tools and Python bindings |
+| `simulation` | `tests` with simulation support, without tools |
+| `simulation-tools-python` | `tests` with simulation support and Python bindings |
 | `release` | Library and Python bindings, as shipped in release packages |
 | `release-no-clang-tidy` | `release` without clang-tidy |
 | `all` | All components, without the pip package and Tracy |
