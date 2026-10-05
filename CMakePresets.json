@@ -96,17 +96,11 @@
         {
             "name": "simulation-tools-python",
             "inherits": [
-                "base"
+                "simulation"
             ],
             "description": "Tests and tools with simulation support and Python bindings",
             "cacheVariables": {
-                "TT_UMD_BUILD_TESTS": {
-                    "value": "ON"
-                },
                 "TT_UMD_BUILD_TOOLS": {
-                    "value": "ON"
-                },
-                "TT_UMD_BUILD_SIMULATION": {
                     "value": "ON"
                 },
                 "TT_UMD_BUILD_PYTHON": {
@@ -189,17 +183,11 @@
         {
             "name": "code-analysis",
             "inherits": [
-                "base"
+                "simulation"
             ],
             "description": "Run Clang Static Analyzer",
             "cacheVariables": {
-                "TT_UMD_BUILD_TESTS": {
-                    "value": "ON"
-                },
                 "TT_UMD_BUILD_TOOLS": {
-                    "value": "ON"
-                },
-                "TT_UMD_BUILD_SIMULATION": {
                     "value": "ON"
                 },
                 "TT_UMD_ENABLE_CLANG_TIDY": {
