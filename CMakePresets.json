@@ -83,6 +83,21 @@
             "inherits": [
                 "base"
             ],
+            "description": "Tests with simulation support, without tools and Python bindings",
+            "cacheVariables": {
+                "TT_UMD_BUILD_TESTS": {
+                    "value": "ON"
+                },
+                "TT_UMD_BUILD_SIMULATION": {
+                    "value": "ON"
+                }
+            }
+        },
+        {
+            "name": "simulation-tools-python",
+            "inherits": [
+                "base"
+            ],
             "description": "Tests and tools with simulation support and Python bindings",
             "cacheVariables": {
                 "TT_UMD_BUILD_TESTS": {
@@ -98,21 +113,6 @@
                     "value": "ON"
                 },
                 "TT_UMD_BUILD_PIP": {
-                    "value": "ON"
-                }
-            }
-        },
-        {
-            "name": "simulation-no-tools",
-            "inherits": [
-                "base"
-            ],
-            "description": "Tests with simulation support, without tools and Python bindings",
-            "cacheVariables": {
-                "TT_UMD_BUILD_TESTS": {
-                    "value": "ON"
-                },
-                "TT_UMD_BUILD_SIMULATION": {
                     "value": "ON"
                 }
             }
@@ -235,8 +235,8 @@
             "configurePreset": "simulation"
         },
         {
-            "name": "simulation-no-tools",
-            "configurePreset": "simulation-no-tools"
+            "name": "simulation-tools-python",
+            "configurePreset": "simulation-tools-python"
         },
         {
             "name": "release",

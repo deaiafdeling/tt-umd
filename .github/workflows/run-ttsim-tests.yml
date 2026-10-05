@@ -251,10 +251,10 @@ jobs:
         # Build presets are looked up in the current directory, so run from the UMD checkout.
         working-directory: tt-metal/tt_metal/third_party/umd
         run: |
-          cmake --preset simulation
+          cmake --preset simulation-tools-python
           # sim_server is the simulation-gated tool; this is the only lane that builds it (build-tests
           # builds the tools with simulation OFF, which excludes it).
-          cmake --build --preset simulation --target api_tests umd_microbenchmark sim_server nanobind_tt_umd
+          cmake --build --preset simulation-tools-python --target api_tests umd_microbenchmark sim_server nanobind_tt_umd
 
       # Exercises the tool, not just its build: a single-chip simulator ships no cluster_descriptor.yaml,
       # which is the case where a host with no chips would serve no sockets and still look like it started.
@@ -645,8 +645,8 @@ jobs:
 
       - name: Build UMD api_tests with simulation support
         run: |
-          cmake --preset simulation-no-tools
-          cmake --build --preset simulation-no-tools --target api_tests
+          cmake --preset simulation
+          cmake --build --preset simulation --target api_tests
 
       - name: Run UMD TestDeviceIOFixture on tt-sim wormhole
         timeout-minutes: 1

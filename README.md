@@ -77,13 +77,13 @@ cmake --build build
 | `default` | Library and tools with the CMake option defaults (clang-tidy enabled) |
 | `examples` | `default` with examples |
 | `tests` | Tests and tools, without simulation, Python or clang-tidy |
-| `simulation` | `tests` with simulation support and Python bindings |
-| `simulation-no-tools` | `simulation` without tools and Python bindings |
+| `simulation` | Tests with simulation support, without tools or Python bindings |
+| `simulation-tools-python` | `simulation` with tools and Python bindings |
 | `release` | Library and Python bindings, as shipped in release packages |
 | `release-no-clang-tidy` | `release` without clang-tidy |
 | `all` | All components, including the pip package and Tracy |
 | `all-no-pip` | `all` without the pip package |
-| `code-analysis` | Debug `simulation-no-tools` build with tools, clang-20 and clang-tidy, used by the code-analysis CI job |
+| `code-analysis` | Debug `simulation` build with tools, clang-20 and clang-tidy, used by the code-analysis CI job |
 
 Each configure preset has a build preset of the same name:
 ```
