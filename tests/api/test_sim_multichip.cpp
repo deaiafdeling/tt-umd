@@ -467,8 +467,11 @@ TEST_F(TTSimDiscoveryTest, RemoteChipsAreBuiltAsRemoteChips) {
         EXPECT_NE(dynamic_cast<RemoteChip*>(cluster.get_chip(chip)), nullptr)
             << "remote chip " << chip << " was not built as a RemoteChip";
         EXPECT_FALSE(cluster.get_chip(chip)->is_mmio_capable()) << "remote chip " << chip << " claims MMIO";
-        EXPECT_NE(cluster.get_chip(chip)->get_tt_device()->get_remote_communication(), nullptr)
+        RemoteCommunication* remote_communication = cluster.get_chip(chip)->get_tt_device()->get_remote_communication();
+        ASSERT_NE(remote_communication, nullptr)
             << "remote chip " << chip << " has no RemoteCommunication to flush through";
+        EXPECT_TRUE(remote_communication->has_sysmem_manager())
+            << "remote chip " << chip << " is not wired to its gateway's sysmem manager";
     }
 }
 
