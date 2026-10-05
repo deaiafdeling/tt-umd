@@ -268,10 +268,10 @@ jobs:
       - name: Build
         run: |
           echo "Compiling the code..."
-          cmake --preset release \
+          cmake --preset release -B ${{ env.BUILD_OUTPUT_DIR }} \
             -DCMAKE_BUILD_TYPE=${{ env.RELEASE_BUILD_TYPE }} \
             -DCMAKE_INSTALL_PREFIX=${{ env.INSTALL_OUTPUT_DIR }}
-          cmake --build --preset release
+          cmake --build ${{ env.BUILD_OUTPUT_DIR }}
           echo "Compile complete."
 
       - name: Generate ${{ matrix.image.package }} packages

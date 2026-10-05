@@ -160,12 +160,12 @@ jobs:
       - name: Build ${{ inputs.build-targets || env.BUILD_TARGETS }}
         run: |
           echo "Compiling the code..."
-          cmake --preset tests \
+          cmake --preset tests -B ${{ env.BUILD_OUTPUT_DIR }} \
             -DTT_UMD_ENABLE_TRACY=${{ matrix.use_tracy && 'ON' || 'OFF' }} \
             -DTT_UMD_ENABLE_LOGGING=${{ secrets.ACTIONS_RUNNER_DEBUG == 'true' && 'ON' || 'OFF' }} \
             -DTT_UMD_ENABLE_SCCACHE=${{ inputs.use-sccache && 'ON' || 'OFF' }} \
             -DCMAKE_BUILD_TYPE=${{ inputs.build-type || 'Release' }}
-          cmake --build --preset tests --target ${{ inputs.build-targets || env.BUILD_TARGETS }}
+          cmake --build ${{ env.BUILD_OUTPUT_DIR }} --target ${{ inputs.build-targets || env.BUILD_TARGETS }}
           echo "Compile complete."
 
       # This is needed to preserve file permissions
