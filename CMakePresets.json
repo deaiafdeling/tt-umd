@@ -149,15 +149,9 @@
             "inherits": [
                 "base"
             ],
-            "description": "All components, including the pip package and Tracy",
+            "description": "All components, without the pip package and Tracy",
             "cacheVariables": {
                 "TT_UMD_BUILD_ALL": {
-                    "value": "ON"
-                },
-                "TT_UMD_BUILD_PIP": {
-                    "value": "ON"
-                },
-                "TT_UMD_ENABLE_TRACY": {
                     "value": "ON"
                 },
                 "TT_UMD_ENABLE_CLANG_TIDY": {
@@ -166,16 +160,16 @@
             }
         },
         {
-            "name": "all-no-pip",
+            "name": "all-pip-tracy",
             "inherits": [
-                "base"
+                "all"
             ],
-            "description": "All components, without the pip package",
+            "description": "all with the pip package and Tracy",
             "cacheVariables": {
-                "TT_UMD_BUILD_ALL": {
+                "TT_UMD_BUILD_PIP": {
                     "value": "ON"
                 },
-                "TT_UMD_ENABLE_CLANG_TIDY": {
+                "TT_UMD_ENABLE_TRACY": {
                     "value": "ON"
                 }
             }
@@ -239,8 +233,8 @@
             "configurePreset": "all"
         },
         {
-            "name": "all-no-pip",
-            "configurePreset": "all-no-pip"
+            "name": "all-pip-tracy",
+            "configurePreset": "all-pip-tracy"
         },
         {
             "name": "code-analysis",

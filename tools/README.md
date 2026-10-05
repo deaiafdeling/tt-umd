@@ -6,8 +6,8 @@ In general, see the common build instructions in the main [README](../README.md)
 
 Short instructions for building tools:
 ```
-cmake --preset tests
-cmake --build --preset tests --target umd_tools
+cmake --preset default
+cmake --build --preset default --target umd_tools
 ```
 
 ## Topology tool
