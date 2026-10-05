@@ -62,7 +62,6 @@ cmake --build --preset default
 ```
 
 To build all components (some are turned off by default, like tests), you can run these commands:
-<!-- TODO: Cannot be replaced with `all` preset, check the comment on BUILD_ALL in CMake -->
 ```
 cmake -B build -G Ninja -DTT_UMD_BUILD_ALL=ON
 cmake --build build
