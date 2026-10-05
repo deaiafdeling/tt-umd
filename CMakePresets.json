@@ -37,185 +37,180 @@
             }
         },
         {
-            "name": "with-tests",
-            "hidden": true,
-            "cacheVariables": {
-                "TT_UMD_BUILD_TESTS": {
-                    "value": "ON"
-                }
-            }
-        },
-        {
-            "name": "with-simulation",
-            "hidden": true,
-            "cacheVariables": {
-                "TT_UMD_BUILD_SIMULATION": {
-                    "value": "ON"
-                }
-            }
-        },
-        {
-            "name": "with-python",
-            "hidden": true,
-            "cacheVariables": {
-                "TT_UMD_BUILD_PYTHON": {
-                    "value": "ON"
-                }
-            }
-        },
-        {
-            "name": "with-pip",
-            "hidden": true,
-            "cacheVariables": {
-                "TT_UMD_BUILD_PIP": {
-                    "value": "ON"
-                }
-            }
-        },
-        {
-            "name": "with-tools",
-            "hidden": true,
+            "name": "default",
+            "inherits": [
+                "base"
+            ],
+            "description": "Library and tools with the CMake option defaults",
             "cacheVariables": {
                 "TT_UMD_BUILD_TOOLS": {
                     "value": "ON"
-                }
-            }
-        },
-        {
-            "name": "with-clang-tidy",
-            "hidden": true,
-            "cacheVariables": {
+                },
                 "TT_UMD_ENABLE_CLANG_TIDY": {
                     "value": "ON"
                 }
             }
         },
         {
-            "name": "with-tracy",
-            "hidden": true,
-            "cacheVariables": {
-                "TT_UMD_ENABLE_TRACY": {
-                    "value": "ON"
-                }
-            }
-        },
-        {
-            "name": "with-examples",
-            "hidden": true,
+            "name": "examples",
+            "inherits": [
+                "base"
+            ],
+            "description": "default with examples",
             "cacheVariables": {
                 "TT_UMD_BUILD_EXAMPLES": {
                     "value": "ON"
-                }
-            }
-        },
-        {
-            "name": "with-all",
-            "hidden": true,
-            "cacheVariables": {
-                "TT_UMD_BUILD_ALL": {
+                },
+                "TT_UMD_BUILD_TOOLS": {
+                    "value": "ON"
+                },
+                "TT_UMD_ENABLE_CLANG_TIDY": {
                     "value": "ON"
                 }
             }
-        },
-        {
-            "name": "default",
-            "inherits": [
-                "with-tools",
-                "with-clang-tidy",
-                "base"
-            ],
-            "description": "Library and tools with the CMake option defaults"
-        },
-        {
-            "name": "examples",
-            "inherits": [
-                "with-examples",
-                "with-tools",
-                "with-clang-tidy",
-                "base"
-            ],
-            "description": "default with examples"
         },
         {
             "name": "tests",
             "inherits": [
-                "with-tests",
-                "with-tools",
                 "base"
             ],
-            "description": "Tests and tools, without simulation, Python or clang-tidy"
+            "description": "Tests and tools, without simulation, Python or clang-tidy",
+            "cacheVariables": {
+                "TT_UMD_BUILD_TESTS": {
+                    "value": "ON"
+                },
+                "TT_UMD_BUILD_TOOLS": {
+                    "value": "ON"
+                }
+            }
         },
         {
             "name": "simulation",
             "inherits": [
-                "with-tests",
-                "with-tools",
-                "with-simulation",
-                "with-python",
-                "with-pip",
                 "base"
             ],
-            "description": "Tests and tools with simulation support and Python bindings"
+            "description": "Tests and tools with simulation support and Python bindings",
+            "cacheVariables": {
+                "TT_UMD_BUILD_TESTS": {
+                    "value": "ON"
+                },
+                "TT_UMD_BUILD_TOOLS": {
+                    "value": "ON"
+                },
+                "TT_UMD_BUILD_SIMULATION": {
+                    "value": "ON"
+                },
+                "TT_UMD_BUILD_PYTHON": {
+                    "value": "ON"
+                },
+                "TT_UMD_BUILD_PIP": {
+                    "value": "ON"
+                }
+            }
         },
         {
             "name": "simulation-no-tools",
             "inherits": [
-                "with-tests",
-                "with-simulation",
                 "base"
             ],
-            "description": "Tests with simulation support, without tools and Python bindings"
+            "description": "Tests with simulation support, without tools and Python bindings",
+            "cacheVariables": {
+                "TT_UMD_BUILD_TESTS": {
+                    "value": "ON"
+                },
+                "TT_UMD_BUILD_SIMULATION": {
+                    "value": "ON"
+                }
+            }
         },
         {
             "name": "release",
             "inherits": [
-                "with-python",
-                "with-tools",
-                "with-clang-tidy",
                 "base"
             ],
-            "description": "Library and Python bindings, as shipped in release packages"
+            "description": "Library and Python bindings, as shipped in release packages",
+            "cacheVariables": {
+                "TT_UMD_BUILD_PYTHON": {
+                    "value": "ON"
+                },
+                "TT_UMD_BUILD_TOOLS": {
+                    "value": "ON"
+                },
+                "TT_UMD_ENABLE_CLANG_TIDY": {
+                    "value": "ON"
+                }
+            }
         },
         {
             "name": "release-no-clang-tidy",
             "inherits": [
-                "with-python",
-                "with-tools",
                 "base"
             ],
-            "description": "Release build without clang-tidy"
+            "description": "Release build without clang-tidy",
+            "cacheVariables": {
+                "TT_UMD_BUILD_PYTHON": {
+                    "value": "ON"
+                },
+                "TT_UMD_BUILD_TOOLS": {
+                    "value": "ON"
+                }
+            }
         },
         {
             "name": "all",
             "inherits": [
-                "with-all",
-                "with-pip",
-                "with-tracy",
-                "with-clang-tidy",
                 "base"
             ],
-            "description": "All components, including the pip package and Tracy"
+            "description": "All components, including the pip package and Tracy",
+            "cacheVariables": {
+                "TT_UMD_BUILD_ALL": {
+                    "value": "ON"
+                },
+                "TT_UMD_BUILD_PIP": {
+                    "value": "ON"
+                },
+                "TT_UMD_ENABLE_TRACY": {
+                    "value": "ON"
+                },
+                "TT_UMD_ENABLE_CLANG_TIDY": {
+                    "value": "ON"
+                }
+            }
         },
         {
             "name": "all-no-pip",
             "inherits": [
-                "with-all",
-                "with-clang-tidy",
                 "base"
             ],
-            "description": "All components, without the pip package"
+            "description": "All components, without the pip package",
+            "cacheVariables": {
+                "TT_UMD_BUILD_ALL": {
+                    "value": "ON"
+                },
+                "TT_UMD_ENABLE_CLANG_TIDY": {
+                    "value": "ON"
+                }
+            }
         },
         {
             "name": "code-analysis",
             "inherits": [
-                "with-tests",
-                "with-tools",
-                "with-simulation",
-                "with-clang-tidy",
                 "base"
             ],
             "description": "Run Clang Static Analyzer",
             "cacheVariables": {
+                "TT_UMD_BUILD_TESTS": {
+                    "value": "ON"
+                },
+                "TT_UMD_BUILD_TOOLS": {
+                    "value": "ON"
+                },
+                "TT_UMD_BUILD_SIMULATION": {
+                    "value": "ON"
+                },
+                "TT_UMD_ENABLE_CLANG_TIDY": {
+                    "value": "ON"
+                },
                 "CMAKE_BUILD_TYPE": {
                     "value": "Debug"
                 },
