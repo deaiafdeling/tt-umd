@@ -54,17 +54,11 @@
         {
             "name": "examples",
             "inherits": [
-                "base"
+                "default"
             ],
             "description": "default with examples",
             "cacheVariables": {
                 "TT_UMD_BUILD_EXAMPLES": {
-                    "value": "ON"
-                },
-                "TT_UMD_BUILD_TOOLS": {
-                    "value": "ON"
-                },
-                "TT_UMD_ENABLE_CLANG_TIDY": {
                     "value": "ON"
                 }
             }
